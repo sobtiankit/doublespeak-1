@@ -1,0 +1,180 @@
+openapi: 3.0.0
+info:
+    version: 0.5.1
+    title: Annotation service
+    description: This service provides a generic API to add comments and/or annotations to any model in the Postman ecosystem.
+    contact:
+        name: Ankit Muchhala
+        url: getpostman.com
+        email: ankit.m@getpostman.com
+
+servers:
+    -   url: https://annotation.postman.tech
+        description: Production environment
+
+    -   url: https://annotation.postman-stage.tech
+        description: Stage environment
+      
+    -   url: https://annotation.postman-beta.tech
+        description: Beta environment
+
+components:
+    schemas:
+        Comment:
+            type: object
+            properties:
+                id:
+                    type: number
+                    example: 42
+                body:
+                    type: string
+                    example: This is a comment
+                createdBy:
+                    type: number
+                    example: 123
+                createdAt:
+                    type: string
+                    example: '2019-06-21T05:27:57.000Z'
+                updatedAt:
+                    type: string
+                    example: '2019-06-21T05:27:57.000Z'
+                tags:
+                  type: object
+                  example: null
+                anchor:
+                  type: string
+                  example: 'request/123'
+
+paths:
+    /comments:
+        get:
+            description: Fetch all comments
+            parameters:
+                -   name: model
+                    in: query
+                    description: Model name for which you want to fetch comments
+                    schema:
+                        type: string
+                        example: collection
+                -   name: modelId
+                    in: query
+                    description: ID of the model for which you want to fetch comments
+                    schema:
+                        type: string
+                        example: 123-456
+            responses:
+                200:
+                    description: List of comments
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/Comment'
+        post:
+            description: Create a comment on a specific model
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                body:
+                                    type: string
+                                    example: Here is a comment!
+            responses:
+                200:
+                    description: Successful comment creation
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Comment'
+              
+    /comments/{id}:
+        put:
+            description: Update a specific comment
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    schema:
+                        type: number
+                        example: 42
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                body:
+                                    type: string
+                                    example: Updated body
+                                tags:
+                                    type: object
+            responses:
+                200:
+                    description: Updated comment
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Comment'
+
+        delete:
+            description: Delete a specific comment
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    schema:
+                        type: number
+                        example: 42
+            responses:
+                200:
+                    description: Deleted comment
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Comment'
+
+    /registry:
+        post:
+            description: Register a model for comments
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                model:
+                                    type: string
+                                    example: monitor
+                                access:
+                                    type: object
+                                    properties:
+                                        service:
+                                            type: string
+                                            example: sync
+                                        uri:
+                                            type: string
+                                            example: '/monitors/:modelId'
+                                notification:
+                                    type: object
+                                    properties:
+                                        service:
+                                            type: string
+                                            example: sync
+                                        templateId:
+                                            type: number
+                                            example: 123
+                                        webhookUri:
+                                            type: string
+                                            example: '/webhooks/comments'
+            responses:
+                200:
+                    description: Created registry entry
+                    content:
+                        application/json:
+                            schema:
+                                type: object

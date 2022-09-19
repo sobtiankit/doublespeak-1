@@ -1,0 +1,18 @@
+id = 31fa4b7f-e06d-4fe8-81d6-919a4465add8
+
+[relations]
+
+[relations.collections]
+rootDirectory = postman/collections
+files[] = {"id":"583-3352f8cf-b0fd-48f9-aead-bc1f756f65eb","path":"Annotation <> Presence Contract.json","metaData":{}}
+files[] = {"id":"583-9612dd83-4a20-4629-83ed-c598236349da","path":"Annotation API Blueprint.json","metaData":{}}
+files[] = {"id":"583-8fb43399-99e8-4e30-97b0-67517db7cea0","path":"Annotation API Tests.json","metaData":{}}
+files[] = {"id":"583-5d0a594a-4d17-4eac-a4bb-ddcdfe01f7b8","path":"Annotation API.json","metaData":{}}
+
+[relations.collections.metaData]
+
+[relations.apiDefinition]
+rootDirectory = postman/schemas
+files[] = {"path":"index.yaml","metaData":{}}
+
+[relations.apiDefinition.metaData]

@@ -1,0 +1,401 @@
+{
+	"info": {
+		"_postman_id": "5d0a594a-4d17-4eac-a4bb-ddcdfe01f7b8",
+		"name": "Annotation API",
+		"description": "This service provides a generic API to add comments and/or annotations to any model in the Postman ecosystem.\n\nContact Support:\n Name: Ankit Muchhala\n Email: ankit.m@getpostman.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "583-5d0a594a-4d17-4eac-a4bb-ddcdfe01f7b8"
+	},
+	"item": [
+		{
+			"name": "comments",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "/comments/:id",
+							"id": "27a775e6-4c9d-44c5-a103-f8038a8da72c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"body\": \"Updated body\",\n    \"tags\": {}\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/comments/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"comments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "42",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Update a specific comment"
+							},
+							"response": [
+								{
+									"id": "8945f20a-17f5-4ac4-9675-5d305f8257a4",
+									"name": "Updated comment",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"body\": \"Updated body\",\n    \"tags\": {}\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/comments/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comments",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "42",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Update a specific comment"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": 42,\n \"body\": \"This is a comment\",\n \"createdBy\": 123,\n \"createdAt\": \"2019-06-21T05:27:57.000Z\",\n \"updatedAt\": \"2019-06-21T05:27:57.000Z\",\n \"tags\": {},\n \"anchor\": \"request/123\"\n}"
+								}
+							]
+						},
+						{
+							"name": "/comments/:id",
+							"id": "4066fd77-4e88-4cbf-b99a-b5344143f003",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/comments/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"comments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "42",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Delete a specific comment"
+							},
+							"response": [
+								{
+									"id": "d210f219-0367-4bdd-a79c-bdb0dde90d09",
+									"name": "Deleted comment",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/comments/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"comments",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "42",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Delete a specific comment"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": 42,\n \"body\": \"This is a comment\",\n \"createdBy\": 123,\n \"createdAt\": \"2019-06-21T05:27:57.000Z\",\n \"updatedAt\": \"2019-06-21T05:27:57.000Z\",\n \"tags\": {},\n \"anchor\": \"request/123\"\n}"
+								}
+							]
+						}
+					],
+					"id": "6f1dca0a-337d-471c-9054-e6ad191aec7c"
+				},
+				{
+					"name": "/comments",
+					"id": "9fb1c906-a3a0-4b40-8b76-dfd7c744c7eb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/comments?model=collection&modelId=123-456",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comments"
+							],
+							"query": [
+								{
+									"description": "Model name for which you want to fetch comments",
+									"key": "model",
+									"value": "collection"
+								},
+								{
+									"description": "ID of the model for which you want to fetch comments",
+									"key": "modelId",
+									"value": "123-456"
+								}
+							]
+						},
+						"description": "Fetch all comments"
+					},
+					"response": [
+						{
+							"id": "77e78e62-c8b4-4e58-9f1f-ca98bbea9838",
+							"name": "List of comments",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/comments?model=collection&modelId=123-456",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"comments"
+									],
+									"query": [
+										{
+											"description": "Model name for which you want to fetch comments",
+											"key": "model",
+											"value": "collection"
+										},
+										{
+											"description": "ID of the model for which you want to fetch comments",
+											"key": "modelId",
+											"value": "123-456"
+										}
+									]
+								},
+								"description": "Fetch all comments"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"id\": 42,\n  \"body\": \"This is a comment\",\n  \"createdBy\": 123,\n  \"createdAt\": \"2019-06-21T05:27:57.000Z\",\n  \"updatedAt\": \"2019-06-21T05:27:57.000Z\",\n  \"tags\": {},\n  \"anchor\": \"request/123\"\n },\n {\n  \"id\": 42,\n  \"body\": \"This is a comment\",\n  \"createdBy\": 123,\n  \"createdAt\": \"2019-06-21T05:27:57.000Z\",\n  \"updatedAt\": \"2019-06-21T05:27:57.000Z\",\n  \"tags\": {},\n  \"anchor\": \"request/123\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "/comments",
+					"id": "302c4d89-fb74-4371-ae99-e3dcc1c195a6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"body\": \"Here is a comment!\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/comments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comments"
+							]
+						},
+						"description": "Create a comment on a specific model"
+					},
+					"response": [
+						{
+							"id": "ec663395-1f45-44db-a633-bef2deec5aa0",
+							"name": "Successful comment creation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"body\": \"Here is a comment!\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/comments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"comments"
+									]
+								},
+								"description": "Create a comment on a specific model"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": 42,\n \"body\": \"This is a comment\",\n \"createdBy\": 123,\n \"createdAt\": \"2019-06-21T05:27:57.000Z\",\n \"updatedAt\": \"2019-06-21T05:27:57.000Z\",\n \"tags\": {},\n \"anchor\": \"request/123\"\n}"
+						}
+					]
+				}
+			],
+			"id": "884f5b96-0f56-4eb0-907a-3741ae6dd599"
+		},
+		{
+			"name": "/registry",
+			"id": "abb4df0b-0274-4ead-b5a1-898faabe6319",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"model\": \"monitor\",\n    \"access\": {\n        \"service\": \"sync\",\n        \"uri\": \"/monitors/:modelId\"\n    },\n    \"notification\": {\n        \"service\": \"sync\",\n        \"templateId\": 123,\n        \"webhookUri\": \"/webhooks/comments\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/registry",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"registry"
+					]
+				},
+				"description": "Register a model for comments"
+			},
+			"response": [
+				{
+					"id": "dc4cadb5-4ac4-4f1a-a950-a06ca297775c",
+					"name": "Created registry entry",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"monitor\",\n    \"access\": {\n        \"service\": \"sync\",\n        \"uri\": \"/monitors/:modelId\"\n    },\n    \"notification\": {\n        \"service\": \"sync\",\n        \"templateId\": 123,\n        \"webhookUri\": \"/webhooks/comments\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/registry",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"registry"
+							]
+						},
+						"description": "Register a model for comments"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "762aa71e-db97-4481-aaba-f7656e05dc7e",
+			"key": "baseUrl",
+			"value": "https://annotation.postman.tech",
+			"type": "string"
+		}
+	]
+}
