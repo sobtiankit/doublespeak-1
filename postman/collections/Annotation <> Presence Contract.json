@@ -357,12 +357,19 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"model\": \"monitor\",\n    \"access\": {\n        \"service\": \"sync\",\n        \"uri\": \"/monitors/:modelId\"\n    },\n    \"notification\": {\n        \"service\": \"sync\",\n        \"templateId\": 123,\n        \"webhookUri\": \"/webhooks/comments\"\n    }\n}"
+							"raw": "{\n    \"model\": \"monitor\",\n    \"access\": {\n        \"service\": \"sync\",\n        \"uri\": \"/monitors/:modelId\"\n    },\n    \"notification\": {\n        \"service\": \"sync\",\n        \"templateId\": 123,\n        \"webhookUri\": \"/webhooks/comments\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "{{baseUrl}}/registry",
