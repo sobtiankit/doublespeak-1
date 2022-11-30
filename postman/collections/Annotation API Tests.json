@@ -59,12 +59,19 @@
 										"header": [
 											{
 												"key": "Content-Type",
-												"value": "application/json"
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"body\": \"Updated body\",\n    \"tags\": {}\n}"
+											"raw": "{\n    \"body\": \"Updated body\",\n    \"tags\": {}\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
 										},
 										"url": {
 											"raw": "{{baseUrl}}/comments/:id",
