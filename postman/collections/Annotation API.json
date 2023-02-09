@@ -390,6 +390,76 @@
 			]
 		},
 		{
+			"name": "/registry Copy 2",
+			"id": "f55ce903-9865-4fa9-833d-2c26ebb0f6e3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"model\": \"monitor\",\n    \"access\": {\n        \"service\": \"sync\",\n        \"uri\": \"/monitors/:modelId\"\n    },\n    \"notification\": {\n        \"service\": \"sync\",\n        \"templateId\": 123,\n        \"webhookUri\": \"/webhooks/comments\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/registry",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"registry"
+					]
+				},
+				"description": "Register a model for comments"
+			},
+			"response": [
+				{
+					"id": "9828a046-2932-4575-9932-7ab44f83a077",
+					"name": "Created registry entry",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"monitor\",\n    \"access\": {\n        \"service\": \"sync\",\n        \"uri\": \"/monitors/:modelId\"\n    },\n    \"notification\": {\n        \"service\": \"sync\",\n        \"templateId\": 123,\n        \"webhookUri\": \"/webhooks/comments\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/registry",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"registry"
+							]
+						},
+						"description": "Register a model for comments"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{}"
+				}
+			]
+		},
+		{
 			"name": "/registry Copy",
 			"id": "d646cc98-a9f8-46c3-8871-7f34e756f9de",
 			"protocolProfileBehavior": {
