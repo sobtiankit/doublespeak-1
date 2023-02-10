@@ -397,9 +397,31 @@
 			]
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "0cef8a81-a59c-48b3-87a7-a1e5710662c4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8f5ae80b-738d-4771-a5a8-7b5d21d94562",
+				"type": "text/javascript",
+				"exec": [
+					"asadsadsasdas"
+				]
+			}
+		}
+	],
 	"variable": [
 		{
-			"id": "baseUrl",
+			"id": "31f7c241-71ef-4d71-908c-5d48f64e0993",
 			"key": "baseUrl",
 			"value": "https://annotation.postman.tech",
 			"type": "string"
